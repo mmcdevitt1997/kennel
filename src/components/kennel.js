@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import EmployeeList from "./employee/EmployeeList"
 import LocationList from "./location/LocationList"
 import "./kennel.css"
+import AnimalList from './animal/AnimalList';
 
 export default class Kennel extends Component {
     /*
@@ -22,11 +23,20 @@ export default class Kennel extends Component {
         { id: 1, name: "Nashville North", address: "500 Circle Way" },
         { id: 2, name: "Nashville South", address: "10101 Binary Court" }
     ]
+    AnimalsFromAPI = [
+        { id: 1, name: "dog" },
+        { id: 2, name: "cat" },
+        { id: 3, name: "fish" },
+        { id: 4, name: "hello" }
+    ]
+
 
     state = {
         employees: this.employeesFromAPI,
-        locations: this.locationsFromAPI
+        locations: this.locationsFromAPI,
+        animals: this.AnimalsFromAPI
     }
+
     render() {
         return (
             <article>
@@ -34,6 +44,8 @@ export default class Kennel extends Component {
                 <LocationList locations={this.state.locations} />
                  <h2>Employees</h2>
                 <EmployeeList employees={this.state.employees} />
+                <h2>Animal</h2>
+                <AnimalList animals={this.state.animals}/>
             </article>
         );
     }
